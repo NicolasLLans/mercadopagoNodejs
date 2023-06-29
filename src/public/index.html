@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Store</title>
+</head>
+<body>
+      <button id="pay">Pagar</button>
+      <script>
+            const pay = document.getElementById('pay');
+            pay.addEventListener('click', async ()=>{
+                  const response = await fetch('/create-order', {
+                        method: 'POST'
+                  })
+                  const data = await response.json()
+                  console.log(data);
+                  window.location.href = data.init_point;
+            })
+      </script>
+</body>
+</html>
